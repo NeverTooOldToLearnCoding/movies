@@ -1,0 +1,25 @@
+
+
+<!-- <div class = "top" >
+	<h1>Upload your Cake for Review!</h1>
+
+		<p class = "error">{{error}}</p>
+
+		<p class = "error" *ngIf = "newCake.imgurl.length >= 1 && newCake.imgurl.length <3 ">Your image cannot be blank!</p>
+		<p class = "error" *ngIf = "newCake.baker.length >= 1 && newCake.baker.length <3">Your comment cannot be blank!</p>
+
+</div> -->
+
+<form (submit)="updateCake(childComponentVariable._id)">
+
+	<b>Baker:</b> <input type ="text" name = "childComponentVariable.baker" [(ngModel)] = "childComponentVariable.baker">
+
+	<b>ImgUrl: </b> <input type = "text" name = "childComponentVariable.imgurl" [(ngModel)] = "childComponentVariable.imgurl">
+
+	<input type = "submit" value = "Submit Changes"/>
+
+</form>
+
+<!-- {{childComponentVariable | json}}
+ -->
+

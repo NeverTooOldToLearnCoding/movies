@@ -1,0 +1,52 @@
+
+
+	<!-- 		<p class = "error" *ngIf = "newReview.rating.length < 1">Your rating cannot be blank!</p>
+   <p class = "error" *ngIf = "newReview.comment.length < 1">Your comment cannot be blank!</p> -->
+
+<!--    {{cakes | json}}
+-->
+
+<div>
+
+<h1>Movie List</h1>
+
+<button (click)="showCreate()">Add a new movie</button>
+<router-outlet></router-outlet> 
+
+</div>
+
+<table *ngIf = "cakes.length != 0">
+
+  <thead>
+    <tr>
+      <th>Movie Title</th>
+      <!--         <th>Picture</th> -->
+      <th>Average Rating</th>
+      <th>Available Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor = "let i of cakes | orderBy: 'baker'">
+      <td>{{i.title}}</td>
+      <!--         <td><img [routerLink]="['/view',i._id]" type = "image" src = "{{i.imgurl}}" ></td> -->
+      <td>{{i.average}}</td>
+      <td>
+       <button [routerLink]="['/movies',i._id]">Read Reviews</button>
+       <button [routerLink]="['/reviews','new',i._id]">Write Review</button>
+<!--        <button (click)="onButtonClickShowForm(i._id)">Edit</button> -->
+       <button (click)="removeObj(i._id)">Delete</button>
+     </td>
+   </tr>
+ </tbody>
+</table>
+
+<div class = "right">
+
+  <app-create *ngIf="showForm == true" [formToShow]="" (updateEmitter) = "functionAfterChildDataReceived($event)"></app-create>
+
+  <app-edit *ngIf = "parentVariable != null" [childComponentVariable]="parentVariable" (dataGoingToParent) = "hideEditForm($event)"></app-edit>
+
+</div>
+
+<!-- (click) = "childReview(i)" -->

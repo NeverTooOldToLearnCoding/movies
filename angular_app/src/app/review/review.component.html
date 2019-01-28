@@ -1,0 +1,63 @@
+
+<!-- <img src = "{{cake.imgurl}}">
+-->
+
+<div>
+	<p class = "error" *ngIf = "review.comment.length >= 1 && review.comment.length <3">Your review cannot be less than 3 characters long!</p>
+
+	<p class = "error" *ngIf = "review.rating < 1">Your rating cannot be blank!</p>
+	<p class = "error" *ngIf = "review.reviewer < 1">You must provide your name</p>
+	<p class = "error" *ngIf = "review.comment < 1">You must provide a review</p>
+
+	<h1>Add a review for {{cake.title}}</h1>
+	<form (submit) = "addReview(cake._id)">
+
+		<ul><b>Your Name: </b><input type ="text" name ="review.reviewer" [(ngModel)] = "review.reviewer"></ul>
+		<ul><b>Stars: </b>
+			<select input type = "text"  name="review.rating" [(ngModel)] = "review.rating"  >
+
+				<option value = "1">1</option>
+				<option value = "2">2</option>
+				<option value = "3">3</option>
+				<option value = "4">4</option>
+				<option value = "5">5</option>
+
+			</select></ul>
+
+			<ul><b>Your Review: </b> 
+				<textarea name="review.comment" [(ngModel)] = "review.comment"> </textarea>
+			</ul>
+
+			<br>
+
+			<input [disabled] = "review.comment.length < 3"  type = "submit" value = "Submit Review">
+
+		</form>
+
+	</div>
+
+	<button (click) = "cancel()">Cancel</button>
+
+<!-- 
+	{{review | json}} -->
+
+
+
+<!-- <p class = "error" *ngIf = "review.rating.length = 0">Your rating cannot be blank!</p>
+-->
+
+<!-- <p class = "error" *ngIf = "review.comment.length > 1 && review.comment.length < 3">Your comment cannot be less than 3 characters long!</p> -->
+
+
+<!--  -->
+
+
+<!-- 	{{review | json}} -->
+
+<!-- 
+	<form (submit)="addCake()">
+
+	    <b>Baker: </b><input type="text" name="newCake.baker" [(ngModel)] = "newCake.baker" />
+	    <b>ImgUrl: </b><input type="text" name="newCake.imgurl" [(ngModel)] = "newCake.imgurl" />
+	    <input [disabled]="newCake.baker.length < 1 || newCake.imgurl.length < 1" type="submit" value="Upload Cake"/>
+	</form> -->

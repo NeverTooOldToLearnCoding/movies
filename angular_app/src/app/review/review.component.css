@@ -1,0 +1,14 @@
+
+	img{
+		height:300px;
+		width: 300px;
+		display: inline-block;
+	}
+
+.error{
+	color:red;
+}
+
+div{
+	width: 500px;
+}

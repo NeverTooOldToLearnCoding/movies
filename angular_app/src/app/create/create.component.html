@@ -1,0 +1,74 @@
+
+
+
+<div class = "top" >
+	<h1>Submit a movie and your review</h1>
+	<!-- Back-end validations -->
+	<p class = "error">{{error.title}}</p>
+	<p class = "error">{{error.name}}</p>
+	<p class = "error">{{error.rating}}</p>
+	<p class = "error">{{error.review}}</p>
+	<!-- Front-end validations -->
+
+
+
+	<p class = "error" *ngIf = "newCake.title.length < 1">Movies must have a title</p>
+
+	<p class = "error" *ngIf = "newCake.title.length >= 1 && newCake.title.length <3 ">Your title cannot be less than 3 characters long!</p>
+
+		<p class = "error" *ngIf = "newReview.reviewer.length < 1">You must provide your name</p>
+
+
+		<p class = "error" *ngIf = "newReview.reviewer.length >= 1 && newReview.reviewer.length <3">Your name cannot be less than 3 characters long!</p>
+
+
+		<p class = "error" *ngIf = "newReview.comment.length <1">You must provide a review</p>
+
+		<p class = "error" *ngIf = "newReview.comment.length >= 1 && newReview.comment.length <3 ">Your review must be longer than 3 characters long</p>
+
+
+
+		</div>
+
+
+
+		<form (submit)="addCake()">
+			<!-- use the json pipe to see how newTask changes in real time -->
+			<!-- 	    <p> {{ newCake | json }} </p> -->
+			<!-- validations for entering baker info -->
+
+			<ul><b>Movie Title: </b><input type="text" name="newCake.title" [(ngModel)] = "newCake.title" /></ul>
+			<ul><b>Your Name: </b><input type="text" name="newReview.reviewer" [(ngModel)] = "newReview.reviewer" />
+
+			</ul>
+
+
+			<!-- 	    <b>Title: </b><input type="text" name="newCake.imgurl" [(ngModel)] = "newCake.imgurl" /> -->
+			
+			<ul><b>Stars: </b>
+				<select input type = "text"  name="newReview.rating" [(ngModel)] = "newReview.rating"  >
+
+					<option value = "1">1</option>
+					<option value = "2">2</option>
+					<option value = "3">3</option>
+					<option value = "4">4</option>
+					<option value = "5">5</option>
+
+				</select></ul>
+
+				<ul><b>Your review: </b><input type="text" name="newReview.comment" [(ngModel)] = "newReview.comment" /></ul>
+
+				<input  type="submit" value="Submit"/>
+
+			</form>
+
+			<button (click) = "cancel()">Cancel</button>
+
+<!-- 			{{newCake | json}}
+
+
+			{{newReview | json}} -->
+
+<!-- 
+	[disabled]="newReview.reviewer.length < 1 || newReview.reviewer.length < 1" -->
+

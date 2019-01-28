@@ -1,0 +1,23 @@
+
+	img{
+		height:300px;
+		width: 300px;
+		display: inline-block;
+	}
+
+	.bold{
+		font-weight: bold;
+	}
+
+	table{
+		width: 500px;
+	}
+
+	th{
+
+		outline: 1px solid black;
+	}
+
+	td{
+		text-align: center;
+	}
